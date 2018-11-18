@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
+import Liked from "./liked";
+import Pagination from "./pagination";
+
 class Movies extends Component {
   state = {
     movies: getMovies()
@@ -7,6 +10,14 @@ class Movies extends Component {
 
   handleDelete = movie => {
     const movies = this.state.movies.filter(m => m._id !== movie._id);
+    this.setState({ movies });
+  };
+
+  handleLiked = movie => {
+    const movies = [...this.state.movies];
+    const index = movies.indexOf(movie);
+    movies[index] = { ...movies[index] };
+    movies[index].liked = !movies[index].liked;
     this.setState({ movies });
   };
 
@@ -35,6 +46,14 @@ class Movies extends Component {
                 <td>{movie.dailyRentalRate}</td>
                 <td>
                   {
+                    <Liked
+                      liked={movie.liked}
+                      onClick={() => this.handleLiked(movie)}
+                    />
+                  }
+                </td>
+                <td>
+                  {
                     <button
                       onClick={() => this.handleDelete(movie)}
                       type="button"
@@ -48,6 +67,7 @@ class Movies extends Component {
             ))}
           </tbody>
         </table>
+        <Pagination />
       </React.Fragment>
     );
   }
