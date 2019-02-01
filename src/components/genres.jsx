@@ -5,17 +5,7 @@ const Genres = props => {
   const allGenres = "All Genres";
   return (
     <ul className="list-group">
-      <li
-        className={
-          props.currentGenre === allGenres
-            ? "list-group-item active"
-            : "list-group-item"
-        }
-        onClick={() => props.onGenreChange(allGenres)}
-      >
-        {allGenres}
-      </li>
-      {genres.map(genre => (
+           {genres.map(genre => (
         <li
           key={genre[valueProperty]}
           className={
