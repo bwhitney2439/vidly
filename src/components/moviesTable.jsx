@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import TableHeader from './common/tableHeader'
-import TableBody from './common/tableBody'
-
+import Table from './common/table';
 import Liked from "./liked";
 
 
 class MoviesTable extends Component {
   columns = [
     { path: 'title', label: 'Title'},
-    { path: 'genre.name', label: 'Gentre'},
+    { path: 'genre.name', label: 'Genre'},
     { path: 'numberInStock', label: 'Stock'},
     { path: 'dailyRentalRate', label: 'Rate'},
     { key: 'like', content: movie => <Liked liked={movie.liked} onClick={() => this.props.onLike(movie)} /> },
@@ -16,14 +14,16 @@ class MoviesTable extends Component {
   ];
   
   render() { 
-      const {movies, onDelete, onLike, onSort, sortColumn} = this.props;
+      const {movies, onSort, sortColumn} = this.props;
 
     return (  
-      
-    <table className="table">
-      <TableHeader columns={this.columns} sortColumn={sortColumn} onSort={onSort}/>
-      <TableBody columns={this.columns} data={movies} />
-    </table> 
+      <Table 
+        columns={this.columns} 
+        data={movies} 
+        onSort={onSort} 
+        sortColumn={sortColumn} 
+       />
+    
   );
   }
 }
