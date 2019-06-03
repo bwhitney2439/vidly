@@ -6,6 +6,7 @@ import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NavBar from "./components/navBar";
 import MovieDetails from './components/moviedetails';
+import LoginForm from './components/loginForm';
 import NoMatch from './components/nomatch';
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
   
   <main className="container">
   <Switch>
+    <Route path="/login" component={LoginForm} />
             <Route path="/movies/:id" component={MovieDetails} />
             <Route 
             path="/movies" 
