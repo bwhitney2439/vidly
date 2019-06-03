@@ -8,39 +8,31 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Movies from "./components/movies";
+import Customers from "./components/customers";
+import Rentals from "./components/rentals";
 import NavBar from "./components/navBar";
+import MovieDetails from './components/moviedetails';
 
 class App extends Component {
   render() {
     return (
       <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/old-match">Old Match, to be redirected</Link>
-          </li>
-          <li>
-            <Link to="/will-match">Will Match</Link>
-          </li>
-          <li>
-            <Link to="/will-not-match">Will Not Match</Link>
-          </li>
-          <li>
-            <Link to="/also/will/not/match">Also Will Not Match</Link>
-          </li>
-        </ul>
-        <NavBar />
-        <Switch>
-          <Route path="/" exact component={Movies} />
-        </Switch>
+      <NavBar />
+      <div className="container" >
+      <Switch>
+      <Route exact path="/" component={Movies} />
+      <Route path="/movies/:id" component={MovieDetails} />
+      <Route 
+      path="/movies" 
+      render={props => <Movies sortBy="newest" {...props} />}
+      />
+      <Route path="/customers" component={Customers} />
+      <Route path="/rentals" component={Rentals} />
+      </Switch>
+      </div>
       </div>
     </Router>
-        
-
-
     );
   }
 }

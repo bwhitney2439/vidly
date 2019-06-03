@@ -5,11 +5,17 @@ import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return ( 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <Link className="nav-item nav-link" to="/movies">Movies</Link>
-    </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Vidly</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="navbar-nav">
+        <NavLink className="nav-item nav-link" to="/movies">Movies</NavLink>
+        <NavLink className="nav-item nav-link" to="/customers">Customers</NavLink>
+        <NavLink className="nav-item nav-link" to="/rentals">Rentals</NavLink>
+      </div>
   </div>
 </nav>
      );
