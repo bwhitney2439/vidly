@@ -2,14 +2,24 @@ import React, { Component } from 'react';
 import Input from './input'
 class LoginForm extends Component {
 state = {
-    account: { username: "", password: "" }
+    account: { username: "", password: "" },
+    errors: {}
 };
 
+validate = () => {
+    return { username: 'Username is required'}
+}
     handleSubmit = e => {
     e.preventDefault();
     
+
+    const errors = this.validate();
+    this.setState({ errors });
+    if(errors) return;
+
+
+
     // call the server 
-    //const username = this.username.current.value
     console.log('submitted');
 };
 
