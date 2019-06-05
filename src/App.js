@@ -16,7 +16,6 @@ class App extends Component {
 <Router>
   <React.Fragment>
   <NavBar />
-  
   <main className="container">
   <Switch>
     <Route path="/login" component={LoginForm} />
@@ -31,12 +30,8 @@ class App extends Component {
             <Redirect from="/" exact to="/movies" />
             <Redirect to="/nomatch" />
           </Switch>
-    
   </main>
-
   </React.Fragment>
-
-  
       </Router>
 
 
