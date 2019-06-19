@@ -27,7 +27,7 @@ class App extends Component {
               <Route path="/login" component={LoginForm} />
               <Route path="/movies/new" component={MovieForm} />
               <Route path="/register" component={RegisterForm} />
-              <Route path="/movies/:id" component={MovieDetails} />
+              <Route path="/movies/:id" component={MovieForm} />
               <Route
                 path="/movies"
                 render={props => <Movies sortBy="newest" {...props} />}
